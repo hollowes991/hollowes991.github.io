@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WHO'S WES CHEN</title>
+    <link rel="stylesheet" href="./assets/css/foundation.min.css">
+    <link rel="stylesheet" href="./assets/css/app.css">
+    <style>
+        *{ font-family: 'Oswald', sans-serif !important; outline: 0 !important; font-size: 14px;} ::-webkit-scrollbar{display: none;}
+        .logo{ margin: 30px 0; text-align: center;}
+        #menu.nav-bar{ position: fixed; z-index: 99; background: #666666; width: 200px; left: 0px; height: 100%; overflow-y: scroll;}
+        #nav-pane ul{ list-style-type: none; padding: 0px !important; margin:0px !important;} #nav-pane ul li{ position: relative;} 
+        #nav-pane a{ margin: 0 30px; padding:10px 0; display: block; color: #fff; border-bottom:1px solid #d9d9d9; font-weight: 500; text-transform: uppercase;}
+        .contentWrapper{ position: absolute; left: 200px; right: 0px; height: 100%; overflow: hidden; transition: all .5s }
+        .content-wrapper{ position: absolute; height: 100%; overflow: hidden; width:807352px;} 
+        .content{ width: 805px; height: 100%; float:left; overflow-y: scroll;}
+        .context{ width: 50%; padding: 48px;}
+    </style>
+<body>
+    <div class="container">
+        
+        <aside class="nav-bar" id="menu">
+            <div class="logo">
+                <a href="#">
+                    <img src="./assets/images/profile.jpg" alt="">
+                </a>
+            </div>
+            <nav id="navigation" role="navigation">
+                <div class="nav-container">
+                    <div id="nav-pane">
+                        <ul>
+                            <li><a href="#about" id="link_about"><span>about</span></a></li>
+                            <li><a href="#skills" id="link_skills"><span>skills</span></a></li>
+                            <li><a href="#experience" id="link_experience"><span>experience</span></a></li>
+                            <li><a href="#portfolio" id="link_portfolio"><span>portfolio</span></a></li>
+                            <li><a href="#contact" id="link_contact"><span>contact</span></a></li>    
+                            <li><a href="#"><span id="link_blog">blog</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <div class="contentWrapper" id="contentWrapper">
+            <div class="content-wrapper">
+                <article class="content photoCarousel"></article>
+                <article class="content about" id="about" style="background: #99CCFF">sadas</article>
+                <article class="content skills" id="skills" style="background: #FFFF66">
+                    <div class="context">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut distinctio dicta cum quas eligendi nesciunt facilis adipisci illo. Nihil voluptatibus tempora dicta impedit, fuga molestiae libero laudantium vitae amet voluptate.
+                        Perferendis dolorum maiores, distinctio dolor repudiandae, similique nihil adipisci fugit veniam inventore voluptatibus libero possimus vitae repellendus. Quaerat voluptates magnam, libero nihil incidunt officiis iure et soluta assumenda, voluptatum beatae!
+                        Eligendi harum odit deleniti tempora, aliquid, ducimus neque voluptas, iste quis eos nobis dignissimos earum! Aliquid ullam, nesciunt eum qui voluptatum reprehenderit nemo non. Beatae possimus tenetur aperiam ut corrupti?
+                        Blanditiis repellendus hic vitae. Nostrum voluptas voluptatem eos, libero debitis corrupti asperiores eveniet quia itaque, amet expedita quibusdam reiciendis minus, quis numquam accusamus laudantium! Debitis tempora ratione numquam totam illo?
+                        Atque, iure amet quam minus necessitatibus veniam placeat ratione, reiciendis enim distinctio officia, suscipit consequatur assumenda accusantium obcaecati veritatis nemo id voluptatum dolor laboriosam culpa minima eius. Soluta, ab vero?
+                    </div>
+                </article>
+                <article class="content experience" id="experience" style="background: #336666">1456456</article>
+                <article class="content portfolio" id="portfolio"></article>
+                <article class="content contact" id="contact" style="background: #99CCFF">sadas</article>
+                <artilce class="content end" style="background: #333333"></artilce>
+            </div>
+        </div>
+    </div>
+
+<script src="./assets/js/vendor/jquery.js"></script>
+<script src="./assets/js/vendor/foundation.min.js"></script>
+<script src="./assets/js/app.js"></script>
+<script>
+    $("#link_about").on("click", function(e){
+        $('#contentWrapper').animate({
+            scrollRight: $("#contentWrapper").offset({left:-605})
+        });  
+        e.preventDefault();
+    });
+    $("#link_skills").on("click", function(e){
+        $('#contentWrapper').animate({
+            scrollRight: $("#contentWrapper").offset({left:-1410})
+        });  
+        e.preventDefault();
+    });
+    $("#link_experience").on("click", function(e){
+        $('#contentWrapper').animate({
+            scrollRight: $("#contentWrapper").offset({left:-2215})
+        });  
+        e.preventDefault();
+    });
+    $("#link_portfolio").on("click", function(e){
+        $('#contentWrapper').animate({
+            scrollRight: $("#contentWrapper").offset({left:-3020})
+        });  
+        e.preventDefault();
+    });
+    $("#link_contact").on("click", function(e){
+        $('#contentWrapper').animate({
+            scrollRight: $("#contentWrapper").offset({left:-3825})
+        });  
+        e.preventDefault();
+    });
+</script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function() {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function(msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			console.log('Live reload enabled.');
+		})();
+	}
+	// ]]>
+</script>
+</body>
+</html>
