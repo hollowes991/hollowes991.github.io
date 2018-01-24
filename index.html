@@ -7,24 +7,47 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WHO'S WES CHEN</title>
     <link rel="stylesheet" href="./assets/css/foundation.min.css">
+    <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/css/owl.theme.green.min.css">
     <link rel="stylesheet" href="./assets/css/app.css">
     <style>
-        *{ font-family: 'Oswald', sans-serif !important; outline: 0 !important; font-size: 14px;} ::-webkit-scrollbar{display: none;}
+        *{ font-family: 'Oswald' !important; outline: 0 !important; font-size: 14px;} ::-webkit-scrollbar{display: none;}
+        body{ width: 100%; height: 100%; margin: 0; overflow-x: auto; overflow-y: scroll;}
         .logo{ margin: 30px 0; text-align: center;}
-        #menu.nav-bar{ position: fixed; z-index: 99; background: #666666; width: 200px; left: 0px; height: 100%; overflow-y: scroll;}
+        #menu.nav-bar{ position: fixed; z-index: 99; background: rgb(0, 0, 0); width: 200px; left: 0px; height: 100%; overflow-y: scroll;}
         #nav-pane ul{ list-style-type: none; padding: 0px !important; margin:0px !important;} #nav-pane ul li{ position: relative;} 
-        #nav-pane a{ margin: 0 30px; padding:10px 0; display: block; color: #fff; border-bottom:1px solid #d9d9d9; font-weight: 500; text-transform: uppercase;}
-        .contentWrapper{ position: absolute; left: 200px; right: 0px; height: 100%; overflow: hidden; transition: all .5s }
-        .content-wrapper{ position: absolute; height: 100%; overflow: hidden; width:807352px;} 
-        .content{ width: 805px; height: 100%; float:left; overflow-y: scroll;}
-        .context{ width: 50%; padding: 48px;}
+        #nav-pane a{ margin: 0 30px; padding:10px 0; display: block; color: #fff; border-bottom:1px solid #d9d9d9; font-weight: 700; text-transform: uppercase; transition: all .3s;}
+        #nav-pane a span{ font-size: 16px;}
+        #nav-pane a:hover{ color: #e8c979;}
+        .contentWrapper{ position: absolute; left: 200px; right: 0px; height: 100%; overflow: hidden; transition: all 1s cubic-bezier(0.08, 0.57, 0.32, 1.02)}
+        .content-wrapper{ position: relative; height: 100%; z-index: 97; overflow: hidden; width:807352px;}
+        .owl-carousel{ overflow: hidden;} .owl-dots{position: absolute; top: 95vh; left: 15px;}
+        .content{ width: 805px; height: 100%; float:left; }
+        .context{ width: 50%; padding: 48px;} .context .title{ text-transform: uppercase;} .title-line{ border-bottom: 6px solid #333; width: 70px;}
+        .mainContent{ margin: 30px 0;}
+        @media screen and (max-width: 1024px) and (min-width: 968px){ .context{ width: 100%;}}
+        @media (max-width: 767px){
+            .container{ width: 100%; height: 100%;}
+            #menu.nav-bar{ display: block; width: 100%; height: 50px; overflow: hidden; padding: 50px 0 0 0; transition: all .5s; }
+            #menu.nav-bar.active{ height: 100%; background: rgba(0, 0, 0, 0.78);}
+            #navigation{ margin: 70px 0;}
+            .menu-control{ position: absolute; top:0; right:0; color: #fff; padding: 6px 15px;}
+            .menu-control:before, .menu-control:after{ content: ""; display: block; width: 30px; height: 15px; position: relative; border-bottom: 3px solid #fff; transition: all .5s; top: 0px; right: 0px;}
+            #menu.nav-bar.active .menu-control:before{ transition: all .5s; transform: rotate(60deg); top:10px; right:-5px}
+            #menu.nav-bar.active .menu-control:after{ transition: all .5s; transform: rotate(-60deg); top:-10px; right:5px}
+            .logo{ display: none;}
+            .contentWrapper{ position: relative; left: 0;}
+            .content-wrapper{ width: 100%; height: auto; overflow: hidden;}
+            .content{ float: none;}
+            .owl-stage-outer{ height: 480px;} .owl-dots{position: static; }
+        }
     </style>
 <body>
     <div class="container">
         
         <aside class="nav-bar" id="menu">
-            <div class="logo">
-                <a href="#">
+            <div class="logo" id="logo">
+                <a href="./">
                     <img src="./assets/images/profile.jpg" alt="">
                 </a>
             </div>
@@ -37,68 +60,126 @@
                             <li><a href="#experience" id="link_experience"><span>experience</span></a></li>
                             <li><a href="#portfolio" id="link_portfolio"><span>portfolio</span></a></li>
                             <li><a href="#contact" id="link_contact"><span>contact</span></a></li>    
-                            <li><a href="#"><span id="link_blog">blog</span></a></li>
+                            <li><a href="#" id="link_blog"><span>blog</span></a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
+            <div class="menu-control" id="menu-control"></div>
         </aside>
 
         <div class="contentWrapper" id="contentWrapper">
             <div class="content-wrapper">
-                <article class="content photoCarousel"></article>
-                <article class="content about" id="about" style="background: #99CCFF">sadas</article>
-                <article class="content skills" id="skills" style="background: #FFFF66">
-                    <div class="context">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut distinctio dicta cum quas eligendi nesciunt facilis adipisci illo. Nihil voluptatibus tempora dicta impedit, fuga molestiae libero laudantium vitae amet voluptate.
-                        Perferendis dolorum maiores, distinctio dolor repudiandae, similique nihil adipisci fugit veniam inventore voluptatibus libero possimus vitae repellendus. Quaerat voluptates magnam, libero nihil incidunt officiis iure et soluta assumenda, voluptatum beatae!
-                        Eligendi harum odit deleniti tempora, aliquid, ducimus neque voluptas, iste quis eos nobis dignissimos earum! Aliquid ullam, nesciunt eum qui voluptatum reprehenderit nemo non. Beatae possimus tenetur aperiam ut corrupti?
-                        Blanditiis repellendus hic vitae. Nostrum voluptas voluptatem eos, libero debitis corrupti asperiores eveniet quia itaque, amet expedita quibusdam reiciendis minus, quis numquam accusamus laudantium! Debitis tempora ratione numquam totam illo?
-                        Atque, iure amet quam minus necessitatibus veniam placeat ratione, reiciendis enim distinctio officia, suscipit consequatur assumenda accusantium obcaecati veritatis nemo id voluptatum dolor laboriosam culpa minima eius. Soluta, ab vero?
+                <article class="content photoCarousel">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item"><img src="./assets/images/sam-burriss-412574.jpg" alt=""></div>
+                        <div class="item"><img src="./assets/images/david-kovalenko-414247.jpg" alt=""></div>
+                        <div class="item"><img src="./assets/images/eberhard-grossgasteiger-415102.jpg" alt=""></div>
                     </div>
                 </article>
-                <article class="content experience" id="experience" style="background: #336666">1456456</article>
-                <article class="content portfolio" id="portfolio"></article>
-                <article class="content contact" id="contact" style="background: #99CCFF">sadas</article>
-                <artilce class="content end" style="background: #333333"></artilce>
+                <article class="content about" id="about">
+                    <div class="context">
+                        <h2 class="title">about</h2>
+                        <div class="title-line"></div>
+                        <div class="mainContent">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab laborum accusantium optio sint alias, voluptates fuga temporibus sit corrupti sequi rem repellat. Quisquam facilis alias ipsum, porro ab expedita?
+                        </div>
+                    </div>
+                </article>
+                <article class="content skills" id="skills" style="background: #FFFF66">
+                    <div class="context">
+                        <h2 class="title">skills</h2>
+                        <div class="title-line"></div>
+                        <div class="mainContent">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis neque sapiente repellendus tempora voluptates ipsum veniam dolorum. Veniam, et necessitatibus quam quae, modi autem, repellat eligendi laborum illo vero deleniti.
+                            Nihil quibusdam distinctio facilis adipisci, cumque voluptas fugit quaerat impedit nesciunt autem voluptatem, consequatur dolorem quae a vitae dolores doloribus nulla numquam deserunt. Repudiandae, neque pariatur ipsa sint sapiente ab.
+                            Cum repellendus a quis dolor facere maiores ullam impedit inventore. Illum assumenda molestias est quasi, repudiandae, unde vitae architecto iste officia natus totam quisquam libero magni quidem corrupti aspernatur! Pariatur?
+                            Atque reprehenderit sapiente nesciunt similique, eligendi cumque vitae placeat non esse dolor vel laborum nostrum cum nam sit eos, dicta maxime eveniet ut tempora sequi dolore blanditiis porro ipsa? Repudiandae!
+                            Neque quos minus reiciendis, architecto cupiditate quo animi itaque provident aperiam quasi officiis beatae a? Ea molestias in porro, molestiae quo, nostrum praesentium distinctio deleniti dolores ducimus, corporis natus officiis?
+                        </div>
+                    </div>
+                </article>
+                <article class="content experience" id="experience" style="background: #336666">
+                    <div class="context">
+                        <h2 class="title">experience</h2>
+                        <div class="title-line"></div>
+                        
+                    </div>
+                </article>
+                <article class="content portfolio" id="portfolio">
+                    <div class="context">
+                        <h2 class="title">portfolio</h2>
+                        <div class="title-line"></div>
+    
+                    </div>
+                </article>
+                <article class="content contact" id="contact">
+                    <div class="context">
+                        <h2 class="title">contact</h2>
+                        <div class="title-line"></div>
+                        <div class="mainContent">
+                            <h5>Drop me a message !</h5>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ea nisi soluta harum. Quasi, deleniti possimus. Aperiam quidem doloremque sequi blanditiis fuga veritatis corporis odit unde animi, magni delectus quos.
+                        </div>
+                    </div>
+                </article>
+                <artilce class="content end"><img src="./assets/images/the-korus-51284.jpg" alt=""></artilce>
             </div>
         </div>
     </div>
 
 <script src="./assets/js/vendor/jquery.js"></script>
 <script src="./assets/js/vendor/foundation.min.js"></script>
+<script src="./assets/js/owl.carousel.min.js"></script>
 <script src="./assets/js/app.js"></script>
 <script>
+    $("#logo").on("click", function(e){
+        $('#contentWrapper').animate({
+            scrollX: $("#contentWrapper").offset({left:200})
+        });  
+        e.preventDefault();
+    });
     $("#link_about").on("click", function(e){
         $('#contentWrapper').animate({
-            scrollRight: $("#contentWrapper").offset({left:-605})
+            scrollX: $("#contentWrapper").offset({left:-605})
         });  
         e.preventDefault();
     });
     $("#link_skills").on("click", function(e){
         $('#contentWrapper').animate({
-            scrollRight: $("#contentWrapper").offset({left:-1410})
+            scrollX: $("#contentWrapper").offset({left:-1410})
         });  
         e.preventDefault();
     });
     $("#link_experience").on("click", function(e){
         $('#contentWrapper').animate({
-            scrollRight: $("#contentWrapper").offset({left:-2215})
+            scrollX: $("#contentWrapper").offset({left:-2215})
         });  
         e.preventDefault();
     });
     $("#link_portfolio").on("click", function(e){
         $('#contentWrapper').animate({
-            scrollRight: $("#contentWrapper").offset({left:-3020})
+            scrollX: $("#contentWrapper").offset({left:-3020})
         });  
         e.preventDefault();
     });
     $("#link_contact").on("click", function(e){
         $('#contentWrapper').animate({
-            scrollRight: $("#contentWrapper").offset({left:-3825})
+            scrollX: $("#contentWrapper").offset({left:-3825})
         });  
         e.preventDefault();
     });
+
+    $("#menu-control").on("click", function(){
+        $("#menu.nav-bar").toggleClass("active");
+    })
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        autoplay: true,
+        autoplayHoverPause: true,
+        smartSpeed: 750,
+        items:1
+    })
 </script>
 <!-- Code injected by live-server -->
 <script type="text/javascript">
