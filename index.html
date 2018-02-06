@@ -179,102 +179,130 @@
     </div>
 <script src="./assets/js/vendor/jquery.js"></script>
 <script src="./assets/js/owl.carousel.min.js"></script>
+<script src="https://cdn.bootcss.com/enquire.js/2.1.6/enquire.js"></script>
 <script src="./assets/js/app.js"></script>
 <script>
     
-    window.onresize = function(){
-        window.location.reload();
-    }
+    enquire.register("screen and (max-width: 768px)", {
+        setup: function() {
+            query();
+            // JavaScript here
+            // 網頁載入時執行一次
+        },
+        match: function() {
+            query();
+            // JavaScript here
+            // 當CSS media query計算的視窗寬度小於769px時執行
+            // 網頁載入時執行一次
+            // 之後每次改變視窗時會再執行一次
+        },
+        unmatch: function() {
+            query();
+            // JavaScript here
+            // 當CSS media query計算的視窗寬度大於等於769px時執行
+            // 網頁載入時不會執行
+            // 之後每次改變視窗時會再執行一次
+        }
+    }); 
+    // window.onresize = function(){
+    //     window.location.reload();
+    // }
+    
+    function query(){
+        const mq = window.matchMedia( "(max-width: 767px)" );
+        
+        $('#contentWrapper').animate({
+            scrollX: $("#contentWrapper").offset({left:0})
+        });  
 
-    const mq = window.matchMedia( "(max-width: 767px)" );
-
-    if( mq.matches ){
-        // Select all links with hashes
-        $('a[href*="#"]')
-            // Remove links that don't actually link to anything
-            .not('[href="#"]')
-            .not('[href="#0"]')
-            .click(function(event) {
-                // Close Navigation
-                $("#menu.nav-bar").removeClass("active");
-                // On-page links
-                if (
-                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-                && 
-                location.hostname == this.hostname
-            ) {
-                // Figure out element to scroll to
-                let target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                // Does a scroll target exist?
-                if (target.length) {
-                    // Only prevent default if animation is actually gonna happen
-                    event.preventDefault();
-                    $('html, body').animate({
-                    scrollTop: target.offset().top
-                    }, 1000, function() {
-                        // Callback after animation
-                        // Must change focus!
-                        let $target = $(target);
-                        $target.focus();
-                        if ($target.is(":focus")) { // Checking if the target was focused
-                            return false;
-                        } else {
-                            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-                            $target.focus(); // Set focus again
-                        };
-                    });
+        if( mq.matches ){
+            // Select all links with hashes
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function(event) {
+                    // Close Navigation
+                    $("#menu.nav-bar").removeClass("active");
+                    // On-page links
+                    if (
+                    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+                    && 
+                    location.hostname == this.hostname
+                ) {
+                    // Figure out element to scroll to
+                    let target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    // Does a scroll target exist?
+                    if (target.length) {
+                        // Only prevent default if animation is actually gonna happen
+                        event.preventDefault();
+                        $('html, body').animate({
+                        scrollTop: target.offset().top
+                        }, 1000, function() {
+                            // Callback after animation
+                            // Must change focus!
+                            let $target = $(target);
+                            $target.focus();
+                            if ($target.is(":focus")) { // Checking if the target was focused
+                                return false;
+                            } else {
+                                $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                                $target.focus(); // Set focus again
+                            };
+                        });
+                    }
                 }
-            }
-        });    
+            });    
 
-        $("#logo").on("click", function(e){
-            $('#contentWrapper').animate({
-                scrollX: $("#contentWrapper").offset({left:200})
-            });  
-            e.preventDefault();
-        });
+            $("#logo").on("click", function(e){
+                $('#contentWrapper').animate({
+                    scrollX: $("#contentWrapper").offset({left:200})
+                });  
+                e.preventDefault();
+            });
 
-    }else{
-        $("#logo").on("click", function(e){
-            $('#contentWrapper').animate({
-                scrollX: $("#contentWrapper").offset({left:200})
-            });  
-            e.preventDefault();
-        });
-        $("#link_about, #about").on("click", function(e){
-            $('#contentWrapper').animate({
-                scrollX: $("#contentWrapper").offset({left:-605})
-            });  
-            e.preventDefault();
-        });
-        $("#link_skills, #skills").on("click", function(e){
-            $('#contentWrapper').animate({
-                scrollX: $("#contentWrapper").offset({left:-1410})
-            });  
-            e.preventDefault();
-        });
-        $("#link_experience, #experience").on("click", function(e){
-            $('#contentWrapper').animate({
-                scrollX: $("#contentWrapper").offset({left:-2215})
-            });  
-            e.preventDefault();
-        });
-        $("#link_portfolio, #portfolio").on("click", function(e){
-            $('#contentWrapper').animate({
-                scrollX: $("#contentWrapper").offset({left:-3020})
-            });  
-            e.preventDefault();
-        });
-        $("#link_contact, #contact").on("click", function(e){
-            $('#contentWrapper').animate({
-                scrollX: $("#contentWrapper").offset({left:-3825})
-            });  
-            e.preventDefault();
-        });
+        }else{
+            $("#logo").on("click", function(e){
+                $('#contentWrapper').animate({
+                    scrollX: $("#contentWrapper").offset({left:200})
+                });  
+                e.preventDefault();
+            });
+            $("#link_about, #about").on("click", function(e){
+                $('#contentWrapper').animate({
+                    scrollX: $("#contentWrapper").offset({left:-605})
+                });  
+                e.preventDefault();
+            });
+            $("#link_skills, #skills").on("click", function(e){
+                $('#contentWrapper').animate({
+                    scrollX: $("#contentWrapper").offset({left:-1410})
+                });  
+                e.preventDefault();
+            });
+            $("#link_experience, #experience").on("click", function(e){
+                $('#contentWrapper').animate({
+                    scrollX: $("#contentWrapper").offset({left:-2215})
+                });  
+                e.preventDefault();
+            });
+            $("#link_portfolio, #portfolio").on("click", function(e){
+                $('#contentWrapper').animate({
+                    scrollX: $("#contentWrapper").offset({left:-3020})
+                });  
+                e.preventDefault();
+            });
+            $("#link_contact, #contact").on("click", function(e){
+                $('#contentWrapper').animate({
+                    scrollX: $("#contentWrapper").offset({left:-3825})
+                });  
+                e.preventDefault();
+            });
+
+        }
 
     }
-
 
     $("#menu-control").on("click", function(){
         $("#menu.nav-bar").toggleClass("active");
