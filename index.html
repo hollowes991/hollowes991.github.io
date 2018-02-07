@@ -43,7 +43,8 @@
         .slogan{ position: absolute; width: 500px; margin-top:65%; padding: 70px; z-index: 99; color: #fff;}
         .owl-carousel{ overflow: hidden;} .owl-dots{position: absolute; width:100%; top: 90vh; z-index: 999;}
         .content.photoCarousel{ overflow: hidden;}
-        .content{ position: relative; width: 805px; height: 100%; float:left; overflow-y:auto; background: #f5f5f5; border-right: 6px solid #eee;}
+        .content{ position: relative; width: 805px; height: 100%; float:left; overflow-y:auto;}
+        .content:nth-child(1),.content:nth-child(3),.content:nth-child(5){ background: #f5f5f5;}
         .context{ width: 60%; padding: 48px;} .context .title{ text-transform: uppercase;} .title-line{ border-bottom: 6px solid #D66853; width: 70px;}
         .mainContent, .self-info .title{ margin: 30px 0; font-family: "微軟正黑體" !important; font-size: 16px;}
         .self-info .title{ border-bottom: 1px solid #ddd; padding-bottom: 10px;}
@@ -143,7 +144,7 @@
                         </div>
                     </div>
                 </article>
-                <article class="content experience" id="experience" style="background: #336666">
+                <article class="content experience" id="experience">
                     <div class="context">
                         <h2 class="title">experience</h2>
                         <div class="title-line"></div>
@@ -204,9 +205,6 @@
             // 之後每次改變視窗時會再執行一次
         }
     }); 
-    // window.onresize = function(){
-    //     window.location.reload();
-    // }
     
     function query(){
         const mq = window.matchMedia( "(max-width: 767px)" );
