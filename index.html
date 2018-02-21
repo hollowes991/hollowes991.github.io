@@ -32,9 +32,10 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <style>
         *{ font-family: 'Graduate', cursive !important; outline: 0 !important; font-size: 14px;} ::-webkit-scrollbar, srollbar{display: none;}
-        body{ width: 100%; height: 100%; margin: 0; }
+        body{ width: 100%; height: 100%; margin: 0; background: #000;}
+        .loader{height: 10px;background-color: #fff;position: absolute; z-index: 999;}
         .logo{ margin: 30px 0; text-align: center;}
-        .container{ overflow: hidden;}
+        .container{ overflow: hidden; opacity: 0;}
         #menu.nav-bar{ position: fixed; z-index: 99; background:#050401; width: 200px; left: 0px; height: 100%; overflow-y: auto;}
         #nav-pane ul{ list-style-type: none; padding: 0px !important; margin:0px !important;} #nav-pane ul li{ position: relative;} 
         #nav-pane a{ margin: 0 30px; padding:10px 0; display: block; color: #fff; border-bottom:1px solid #d9d9d9; font-weight: 700; text-transform: uppercase; transition: all .3s;}
@@ -42,7 +43,7 @@
         #nav-pane a:hover{ color: #D66853;}
         .external_links{margin: 50px 30px; text-align: center;}.external_links div{display: inline-block; margin-right: 15px;}.external_links a{color:#fff;}
         .contentWrapper{ position: absolute; left: 200px; right: 0px; height: 100%; overflow: hidden; transition: all 1.5s cubic-bezier(0.74, 0.25, 0.34, 0.82);}
-        .content-wrapper{ position: relative; height: 100%; z-index: 97; overflow: hidden; width:807352px;}
+        .content-wrapper{ position: relative; height: 100%; z-index: 97; overflow: hidden; width:807352px; background: #fff;}
         .slogan{ position: absolute; width: 500px; margin-top:65%; padding: 70px; z-index: 99; color: #fff;}
         .owl-carousel{ overflow: hidden;} .owl-dots{position: absolute; width:100%; top: 90vh; z-index: 999;}
         .content.photoCarousel{ overflow: hidden;}
@@ -224,6 +225,8 @@
             .owl-stage-outer{ height: 480px;} .owl-dots{position: static; }
         }
     </style>
+    <div class="loader"></div>
+
 <body>
     <div class="container">
         
@@ -363,7 +366,7 @@
             
         </div>
     </div>
-<script src="./assets/js/vendor/jquery.js"></script>
+<script src="./assets/js/vendor/jquery.min.js"></script>
 <script src="./assets/js/owl.carousel.min.js"></script>
 <script src="https://cdn.bootcss.com/enquire.js/2.1.6/enquire.js"></script>
 <script src="./assets/js/app.js"></script>
@@ -486,6 +489,48 @@
         }
 
     }
+
+    // loader animationa
+    function loaderSpinner() {
+        $(window).load(function() {
+            var loader = $('.loader');
+            var wHeight = $(window).height();
+            var wWidth = $(window).width();
+            var i = 0;
+            /*Center loader on half screen */
+            loader.css({
+                top: wHeight / 2 - 2.5,
+                left: wWidth / 2 - 200
+            })
+          
+        do{
+            loader.animate({
+            width: i
+            },10)
+            i+=3;
+        } while(i <= 400)
+        if(i === 402){
+            loader.animate({
+            left: 0,
+            width: '100%'
+            })
+            loader.animate({
+            top: '0',
+            height: '100vh'
+            })
+        }
+          
+        /* This line hide loader and show content */
+        setTimeout(function(){
+            $('.container').css("opacity", "1");
+            (loader).fadeOut("slow");
+            /*Set time in milisec */
+            },3000);
+        });
+    
+    }
+    
+    loaderSpinner();
     // block selection
     $("#menu-control").on("click", function(){
         $("#menu.nav-bar").toggleClass("active");
