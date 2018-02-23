@@ -226,7 +226,7 @@ function loaderSpinner() {
     /* This line hide loader and show content */
     setTimeout(function(){
         $('.container').css("opacity", "1");
-        $(body).css("visibility", "visible");
+        $('body').css("visibility", "visible");
         (loader).fadeOut("slow");
         /*Set time in milisec */
         },3000);
