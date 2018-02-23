@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="./assets/css/foundation.min.css">
     <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="./assets/css/owl.theme.green.min.css">
+    <link rel="stylesheet" href="./assets/lightbox/css/lightbox.min.css">
     <link rel="stylesheet" href="./dist/css/app.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <style>
@@ -55,6 +56,9 @@
         .mainContent, .self-info .title{ margin: 30px 0; font-family: "微軟正黑體" !important; font-size: 16px;}
         .skillbox{float: left; margin:0 15px;} .knowledge{ margin: 0 15px;}
         .clearfix{clear: both;}
+        .portfolio a{ display: block; overflow: hidden; height: 500px; margin-bottom: 50px;}
+        .portfolio a { transition: all .3s; z-index: 99;}
+        .portfolio a:hover { opacity: .6;}
         #skill { 
             list-style: none;
             font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
@@ -346,7 +350,12 @@
                     <div class="context">
                         <h2 class="title">portfolio</h2>
                         <div class="title-line"></div>
-    
+                        <div class="mainContent">
+                            <div class="portfolio">
+                                <a href="./src/images/portfolio/FireShot Capture 1 - 國立交通大學開放式課程(OpenCourseWare, OCW) - http___ocw.nctu.edu.tw_.png" data-lightbox="portfolio"><img src="./src/images/portfolio/FireShot Capture 1 - 國立交通大學開放式課程(OpenCourseWare, OCW) - http___ocw.nctu.edu.tw_.png" alt=""></a>
+                                <a href="./src/images/portfolio/FireShot Capture 004 - 御鼎興純手工柴燒黑豆醬油 - http___www.ydsin1940.com_.png" data-lightbox="portfolio"><img src="./src/images/portfolio/FireShot Capture 004 - 御鼎興純手工柴燒黑豆醬油 - http___www.ydsin1940.com_.png" alt=""></a>
+                            </div>
+                        </div>
                     </div>
                 </article>
                 <article class="content contact" id="contact">
@@ -372,8 +381,9 @@
             
         </div>
     </div>
-<script src="./assets/js/vendor/jquery.min.js"></script>
+<script src="./assets/js/vendor/jquery.js"></script>
 <script src="./assets/js/owl.carousel.min.js"></script>
+<script src="./assets/lightbox/js/lightbox.min.js"></script>
 <script src="./assets/js/app.js"></script>
 <script>
     
@@ -497,7 +507,7 @@
 
     // loader animationa
     function loaderSpinner() {
-        $(window).load(function() {
+        $(window).on('load', function() {
             var loader = $('.loader');
             var wHeight = $(window).height();
             var wWidth = $(window).width();
